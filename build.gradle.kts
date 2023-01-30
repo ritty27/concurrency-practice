@@ -29,6 +29,8 @@ dependencies {
 	runtimeOnly("mysql:mysql-connector-java")
 
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
+
+	implementation("org.redisson:redisson:3.19.0")
 }
 
 allOpen {

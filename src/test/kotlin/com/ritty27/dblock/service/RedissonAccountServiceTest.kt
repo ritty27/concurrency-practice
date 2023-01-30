@@ -3,7 +3,7 @@ package com.ritty27.dblock.service
 import com.ritty27.dblock.entity.AccountEntity
 import com.ritty27.dblock.repository.AccountRepository
 import org.junit.jupiter.api.AfterEach
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,10 +14,10 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
 @SpringBootTest
-internal class RedisLockAccountServiceTest {
+class RedissonAccountServiceTest{
 
     @Autowired
-    lateinit var redisLockAccountService: RedisLockAccountService
+    lateinit var redissonAccountService: RedissonAccountService
 
     @Autowired
     lateinit var accountRepository: AccountRepository
@@ -50,7 +50,7 @@ internal class RedisLockAccountServiceTest {
         for (i in 0 until threadCount) {
             executorService.submit {
                 try {
-                    redisLockAccountService.decreaseFacade(1L, 10L)
+                    redissonAccountService.decreaseFacade(1L, 10L)
                 } catch (e: Exception) {
                     println(e)
                 } finally {
